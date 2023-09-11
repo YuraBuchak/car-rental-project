@@ -1,0 +1,39 @@
+.container {
+  margin: 30px auto;
+
+  padding: 20px 28px;
+  width: 1240px;
+}
+
+.preferenceTitle {
+  font-weight: 900;
+  font-size: 40px;
+  line-height: calc(60 / 44);
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: gray;
+  margin-bottom: 40px;
+}
+
+.preferenceList {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.preferenceItem {
+  text-align: center;
+  flex-basis: calc((100% - 40px * 2) / 3);
+}
+
+.preferenceItem_title {
+  font-size: 30px;
+  letter-spacing: 0.03em;
+}
+
+.preferenceItem_description {
+  font-size: 24px;
+  letter-spacing: 0.03em;
+  color: gray;
+}

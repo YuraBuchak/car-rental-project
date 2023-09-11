@@ -1,0 +1,27 @@
+.Navigation {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.NavigationContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.NavigationLink {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(243, 243, 243, 0.2);
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+
+  &:hover {
+    background-color: rgba(#161f37, 0.5);
+    border: 1px solid rgba(#f3f3f3, 0.6);
+  }
+}
