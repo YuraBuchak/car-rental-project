@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/car-rental-project/static/css/main.7acaea2f.css",
-    "main.js": "/car-rental-project/static/js/main.a3132c62.js",
+    "main.css": "/car-rental-project/static/css/main.8cb8ad12.css",
+    "main.js": "/car-rental-project/static/js/main.0b08d67f.js",
+    "static/media/death-valley-7763006_1920.jpg": "/car-rental-project/static/media/death-valley-7763006_1920.43660bd5c784dbfe8ae5.jpg",
     "index.html": "/car-rental-project/index.html",
-    "main.7acaea2f.css.map": "/car-rental-project/static/css/main.7acaea2f.css.map",
-    "main.a3132c62.js.map": "/car-rental-project/static/js/main.a3132c62.js.map"
+    "main.8cb8ad12.css.map": "/car-rental-project/static/css/main.8cb8ad12.css.map",
+    "main.0b08d67f.js.map": "/car-rental-project/static/js/main.0b08d67f.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.a3132c62.js"
+    "static/css/main.8cb8ad12.css",
+    "static/js/main.0b08d67f.js"
   ]
 }
