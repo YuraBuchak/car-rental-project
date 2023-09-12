@@ -1,7 +1,7 @@
 import HomePage from 'pages/HomePage/HomePage';
 import Layout from './Layout';
 import CatalogPage from 'pages/CatalogPage/CatalogPage';
-import FavoritesPage from 'pages/Favorites/Favorites';
+import FavoritesPage from 'pages/FavoritesPage/FavoritesPage';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => {

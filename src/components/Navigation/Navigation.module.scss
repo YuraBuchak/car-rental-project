@@ -1,27 +1,31 @@
-.Navigation {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
+@import '../../styles/variables';
 
-.NavigationContainer {
+.navigationContainer {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 40px;
 }
 
-.NavigationLink {
-  padding: 8px 16px;
-  border-radius: 10px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
-  font-size: 14px;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  font-size: 20px;
+.navigationLink {
+  padding: 10px 20px;
 
-  &:hover {
-    background-color: rgba(#161f37, 0.5);
-    border: 1px solid rgba(#f3f3f3, 0.6);
+  font-size: 30px;
+  font-weight: $font-weight-bold;
+  color: $primary-white;
+
+  border-radius: 10px;
+  border: 1px solid $gray;
+
+  transition: border $transition-duration, background-color $transition-duration;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($black, 0.5);
+    border: 1px solid rgba($primary-white, 0.6);
+  }
+
+  &.active {
+    background-color: rgba($black, 0.5);
+    border: 1px solid rgba($primary-white, 0.6);
   }
 }
