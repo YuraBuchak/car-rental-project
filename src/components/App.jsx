@@ -1,8 +1,16 @@
-import HomePage from 'pages/HomePage/HomePage';
-import Layout from './Layout';
-import CatalogPage from 'pages/CatalogPage/CatalogPage';
-import FavoritesPage from 'pages/FavoritesPage/FavoritesPage';
+// import HomePage from 'pages/HomePage/HomePage';
+// import Layout from './Layout';
+// import CatalogPage from 'pages/CatalogPage/CatalogPage';
+// import FavoritesPage from 'pages/FavoritesPage/FavoritesPage';
 import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+
+const Layout = lazy(() => import('../components/Layout'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const CatalogPage = lazy(() => import('../pages/CatalogPage/CatalogPage'));
+const FavoritesPage = lazy(() =>
+  import('../pages/FavoritesPage/FavoritesPage')
+);
 
 const App = () => {
   return (

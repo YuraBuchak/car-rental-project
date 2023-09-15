@@ -3,16 +3,39 @@ import scss from './Navigation.module.scss';
 
 export const Navigation = () => {
   return (
-    <nav className={scss.navigationContainer}>
-      <NavLink to="/" className={scss.navigationLink}>
-        Home
-      </NavLink>
-      <NavLink to="/catalog" className={scss.navigationLink}>
-        Catalog
-      </NavLink>
-      <NavLink to="/favorites" className={scss.navigationLink}>
-        Favorites
-      </NavLink>
+    <nav>
+      <ul className={scss.navigationContainer}>
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? scss.active : scss.navigationLink
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/catalog"
+            className={({ isActive }) =>
+              isActive ? scss.active : scss.navigationLink
+            }
+          >
+            Catalog
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/favorites"
+            className={({ isActive }) =>
+              isActive ? scss.active : scss.navigationLink
+            }
+          >
+            Favorites
+          </NavLink>
+        </li>
+      </ul>
     </nav>
   );
 };
