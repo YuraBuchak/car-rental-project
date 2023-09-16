@@ -5,7 +5,7 @@ const CatalogPage = () => {
   return (
     <div className={scss.container}>
       {/* <h2 className={scss.pageTitle}>Cataloge</h2> */}
-      <CarsList />
+      <CarsList type="catalog" />
     </div>
   );
 };

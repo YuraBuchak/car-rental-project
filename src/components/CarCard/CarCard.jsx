@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import scss from './CarCard.module.scss';
 import { FiHeart } from 'react-icons/fi';
 import { CarModal } from 'components/CarModal/CarModal';
 import placeholderImg from '../../pictures/placeholder.jpg';
+import { useDispatch } from 'react-redux';
+import { parseToFavorites } from 'redux/cars/favoriteSlice';
 
 const CarCard = ({ data }) => {
   const {
+    id,
     address,
     functionalities,
     img,
@@ -19,11 +22,37 @@ const CarCard = ({ data }) => {
   } = data;
 
   const [showModal, setShowModal] = useState(false);
-
   const toggleModal = () => setShowModal(!showModal);
   const handleClick = e => toggleModal();
-
   const splitAddress = address.split(',');
+
+  const dispatch = useDispatch();
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    const currentFavorites =
+      JSON.parse(localStorage.getItem('favorites')) || [];
+    const isFavorite = currentFavorites.find(car => car.id === id);
+    setIsFavorite(isFavorite);
+  }, [id]);
+
+  const handleFavorites = () => {
+    if (!isFavorite) {
+      const currentFavorites =
+        JSON.parse(localStorage.getItem('favorites')) || [];
+      currentFavorites.push(data);
+      localStorage.setItem('favorites', JSON.stringify(currentFavorites));
+      dispatch(parseToFavorites(currentFavorites));
+      setIsFavorite(true);
+    } else {
+      const currentFavorites =
+        JSON.parse(localStorage.getItem('favorites')) || [];
+      const updatedFavorites = currentFavorites.filter(car => car.id !== id);
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      dispatch(parseToFavorites(updatedFavorites));
+      setIsFavorite(false);
+    }
+  };
 
   return (
     <li className={scss.carCard_item}>
@@ -33,11 +62,18 @@ const CarCard = ({ data }) => {
           src={img || placeholderImg}
           alt="car"
         />
-        <button type="button" className={scss.heart_button}>
-          {/* <svg className={scss.icon_heart} width="18" height="18">
-            <use href="./pictures/heart.svg"></use>
-          </svg> */}
-          <FiHeart style={{ fill: '#3470ff', stroke: 'white' }} size={20} />
+        <button
+          onClick={handleFavorites}
+          type="button"
+          className={scss.heart_button}
+        >
+          <FiHeart
+            style={{
+              fill: isFavorite ? '#3470ff' : 'transparent',
+              stroke: 'white',
+            }}
+            size={20}
+          />
         </button>
       </div>
 
