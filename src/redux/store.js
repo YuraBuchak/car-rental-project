@@ -1,7 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import {
-  persistStore,
-  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,20 +7,12 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 import carsSlice from './cars/carsSlice';
 import favoriteSlice from './cars/favoriteSlice';
 
-const persistConfig = {
-  key: 'favorites',
-  storage,
-};
-
-const persistedReducer = persistReducer(persistConfig, carsSlice);
-
 export const store = configureStore({
   reducer: {
-    cars: persistedReducer,
+    cars: carsSlice,
     favorites: favoriteSlice,
   },
   middleware(getDefaultMiddleware) {
@@ -33,5 +23,3 @@ export const store = configureStore({
     });
   },
 });
-
-export const persistor = persistStore(store);

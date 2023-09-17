@@ -1,4 +1,3 @@
-// import scss from '../CarsList/CardList.module.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarsPage } from 'Api/api';
