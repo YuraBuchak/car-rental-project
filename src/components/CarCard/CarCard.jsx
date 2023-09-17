@@ -37,16 +37,14 @@ const CarCard = ({ data }) => {
   }, [id]);
 
   const handleFavorites = () => {
+    const currentFavorites =
+      JSON.parse(localStorage.getItem('favorites')) || [];
     if (!isFavorite) {
-      const currentFavorites =
-        JSON.parse(localStorage.getItem('favorites')) || [];
       currentFavorites.push(data);
       localStorage.setItem('favorites', JSON.stringify(currentFavorites));
       dispatch(parseToFavorites(currentFavorites));
       setIsFavorite(true);
     } else {
-      const currentFavorites =
-        JSON.parse(localStorage.getItem('favorites')) || [];
       const updatedFavorites = currentFavorites.filter(car => car.id !== id);
       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
       dispatch(parseToFavorites(updatedFavorites));
