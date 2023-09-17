@@ -1,10 +1,11 @@
-import scss from '../CarsList/CardList.module.scss';
+// import scss from '../CarsList/CardList.module.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarsPage } from 'Api/api';
 import CarsList from 'components/CarsList/CarsList';
 import { fetchAllCarsThunk } from 'redux/cars/carsOperation';
 import { selectCars } from 'redux/cars/selectors';
+import scss from '../../pages/Page.module.scss';
 
 const CatalogSection = () => {
   const [cars, setCars] = useState();
@@ -40,7 +41,7 @@ const CatalogSection = () => {
 
   return (
     <>
-      <section>
+      <section className={scss.section}>
         <CarsList cars={cars} />
         {page < totalPages && (
           <button
