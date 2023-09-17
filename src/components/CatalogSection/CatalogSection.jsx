@@ -25,7 +25,7 @@ const CatalogSection = () => {
           setCars(catalog);
         }
       } catch (error) {
-        alert('Error fetching catalog:', error.message); // добавити нофікашку
+        alert('Error fetching catalog:', error.message);
       }
     })();
   }, [page]);
