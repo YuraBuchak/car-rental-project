@@ -1,5 +1,6 @@
 import scss from './CardList.module.scss';
 import CarCard from 'components/CarCard/CarCard';
+import PropTypes from 'prop-types';
 
 const CarsList = ({ cars }) => {
   return (
@@ -14,3 +15,7 @@ const CarsList = ({ cars }) => {
 };
 
 export default CarsList;
+
+CarsList.propTypes = {
+  cars: PropTypes.array,
+};

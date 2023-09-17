@@ -1,4 +1,4 @@
-export const selectError = state => state.error;
+export const selectError = state => state.cars.error;
 
 export const selectCars = state => state.cars.carsAll;
 

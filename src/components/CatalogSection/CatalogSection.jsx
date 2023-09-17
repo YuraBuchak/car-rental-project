@@ -1,19 +1,19 @@
 import scss from '../CarsList/CardList.module.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { selectIsLoading } from 'redux/cars/selectors';
-import Loader from 'components/Loader/Loader';
 import { fetchCarsPage } from 'Api/api';
 import CarsList from 'components/CarsList/CarsList';
-// import { fetchAllCarsThunk } from 'redux/cars/carsOperation';
+import { fetchAllCarsThunk } from 'redux/cars/carsOperation';
+import { selectCars } from 'redux/cars/selectors';
 
 const CatalogSection = () => {
-  //   const dispatch = useDispatch();
-  // const cars = useSelector(selectCars);
-  // const error = useSelector(selectError);
   const [cars, setCars] = useState();
   const [page, setPage] = useState(1);
-  //   const isLoading = useSelector(selectIsLoading);
+
+  const dispatch = useDispatch();
+  const catalog = useSelector(selectCars);
+
+  const totalPages = Math.ceil(catalog.length / 8);
 
   useEffect(() => {
     (async () => {
@@ -30,9 +30,9 @@ const CatalogSection = () => {
     })();
   }, [page]);
 
-  // useEffect(() => {
-  //   dispatch(fetchAllCarsThunk());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchAllCarsThunk());
+  }, [dispatch]);
 
   const handleLoadMorePicture = () => {
     setPage(prevPage => prevPage + 1);
@@ -42,13 +42,15 @@ const CatalogSection = () => {
     <>
       <section>
         <CarsList cars={cars} />
-        <button
-          type="button"
-          onClick={handleLoadMorePicture}
-          className={scss.cardList_loadBtn}
-        >
-          Load more
-        </button>
+        {page < totalPages && (
+          <button
+            type="button"
+            onClick={handleLoadMorePicture}
+            className={scss.cardList_loadBtn}
+          >
+            Load more
+          </button>
+        )}
       </section>
     </>
   );

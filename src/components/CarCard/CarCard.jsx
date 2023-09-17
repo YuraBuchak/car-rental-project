@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useEffect, useState } from 'react';
 import scss from './CarCard.module.scss';
 import { FiHeart } from 'react-icons/fi';
@@ -111,3 +113,19 @@ const CarCard = ({ data }) => {
 };
 
 export default CarCard;
+
+CarCard.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    address: PropTypes.string.isRequired,
+    functionalities: PropTypes.arrayOf(PropTypes.string).isRequired,
+    img: PropTypes.string,
+    make: PropTypes.string.isRequired,
+    mileage: PropTypes.number.isRequired,
+    model: PropTypes.string.isRequired,
+    rentalCompany: PropTypes.string.isRequired,
+    rentalPrice: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+  }).isRequired,
+};

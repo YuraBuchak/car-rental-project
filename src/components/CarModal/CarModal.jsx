@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import scss from './CarModal.module.scss';
 import { RxCross2 } from 'react-icons/rx';
 import placeholderImg from '../../pictures/placeholder.jpg';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -141,4 +141,25 @@ export const CarModal = ({ onClick, data }) => {
     </div>,
     modalRoot
   );
+};
+
+CarModal.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    accessories: PropTypes.arrayOf(PropTypes.string).isRequired,
+    address: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    engineSize: PropTypes.string.isRequired,
+    fuelConsumption: PropTypes.string.isRequired,
+    functionalities: PropTypes.arrayOf(PropTypes.string).isRequired,
+    img: PropTypes.string,
+    make: PropTypes.string.isRequired,
+    mileage: PropTypes.number.isRequired,
+    model: PropTypes.string.isRequired,
+    rentalConditions: PropTypes.string.isRequired,
+    rentalPrice: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+  }).isRequired,
 };
