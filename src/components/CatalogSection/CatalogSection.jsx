@@ -51,7 +51,6 @@ const CatalogSection = () => {
   const handleFilter = e => {
     setFilterParams(e);
   };
-  console.log(filteredCars);
 
   return (
     <>
