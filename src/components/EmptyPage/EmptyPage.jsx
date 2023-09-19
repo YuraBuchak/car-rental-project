@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import scss from './EmptyPage.module.scss';
 import { FiHeart } from 'react-icons/fi';
+import scss from './EmptyPage.module.scss';
 
 const EmptyPage = () => {
   const navigate = useNavigate();
