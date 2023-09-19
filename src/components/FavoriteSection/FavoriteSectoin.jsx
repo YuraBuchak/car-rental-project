@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorites } from 'redux/cars/selectors';
-import { parseToFavorites } from 'redux/cars/favoriteSlice';
+import { parseToFavorites } from 'redux/favorite/favoriteSlice';
 import CarsList from 'components/CarsList/CarsList';
 import EmptyPage from 'components/EmptyPage/EmptyPage';
 import scss from '../../pages/Page.module.scss';
@@ -18,7 +18,7 @@ const FavoriteSection = () => {
 
   return (
     <>
-      <section className={scss.section}>
+      <section className={`${scss.section} ${scss.favorites}`}>
         {favorites.length > 0 ? <CarsList cars={favorites} /> : <EmptyPage />}
       </section>
     </>

@@ -8,7 +8,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import carsSlice from './cars/carsSlice';
-import favoriteSlice from './cars/favoriteSlice';
+import favoriteSlice from './favorite/favoriteSlice';
 
 export const store = configureStore({
   reducer: {

@@ -1,31 +1,29 @@
-@import '../../styles/variables';
-@import '../../styles/placeholder';
+@import '../../../styles/variables';
+@import '../../../styles/placeholder';
 
 .container {
   @extend %flex;
-
-  width: 1184px;
   flex-direction: column;
-  margin-top: 100px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 1184px;
+  margin: 0 auto;
+
   gap: 20px;
 }
 
-.aboutDescription {
+.text_result {
   font-size: 25px;
   font-weight: $font-weight-bold;
 }
 
-.chooseBtn {
+.button_result {
   @extend %title;
   @extend %flex;
 
-  width: 274px;
-  margin-top: 10px;
+  width: 200px;
+  padding: 15px 20px;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px 20px;
+  margin-top: 10px;
 
   font-size: 25px;
   color: $primary-white;

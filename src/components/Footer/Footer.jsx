@@ -5,7 +5,10 @@ const Footer = () => {
   return (
     <footer className={scss.footer}>
       <div className={scss.footer_authorWrapper}>
-        <p className={scss.footer_text}>Created by Yurii Buchak.</p>
+        <p className={scss.footer_text}>
+          Created by <span className={scss.footer_text_span}>Yurii Buchak</span>
+          .
+        </p>
         <ul className={scss.footer_list}>
           <li className={scss.footer_listItem}>
             <a

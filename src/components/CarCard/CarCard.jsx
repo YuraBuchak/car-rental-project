@@ -6,7 +6,7 @@ import { FiHeart } from 'react-icons/fi';
 import { CarModal } from 'components/CarModal/CarModal';
 import placeholderImg from '../../pictures/placeholder.jpg';
 import { useDispatch } from 'react-redux';
-import { parseToFavorites } from 'redux/cars/favoriteSlice';
+import { parseToFavorites } from 'redux/favorite/favoriteSlice';
 
 const CarCard = ({ data }) => {
   const {

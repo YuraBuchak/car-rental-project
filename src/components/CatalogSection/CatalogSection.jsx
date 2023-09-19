@@ -1,37 +1,36 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCarsPage } from 'Api/api';
 import CarsList from 'components/CarsList/CarsList';
-import { fetchAllCarsThunk } from 'redux/cars/carsOperation';
-import { selectCars } from 'redux/cars/selectors';
+import {
+  fetchAllCarsThunk,
+  fetchCarsPaginationThunk,
+} from 'redux/cars/carsOperation';
+import {
+  selectCars,
+  selectCarsPage,
+  selectIsLoading,
+} from 'redux/cars/selectors';
 import scss from '../../pages/Page.module.scss';
 import Filter from 'components/Filter/Filter';
 import filterCars from 'components/Filter/filterCars';
+import Paginator from 'components/Paginator/Paginator';
+import Loader from 'components/Loader/Loader';
+import NoResults from './NoResults/NoResults';
 
 const CatalogSection = () => {
-  const [cars, setCars] = useState();
+  const dispatch = useDispatch();
+  const cars = useSelector(selectCarsPage);
+  const isLoading = useSelector(selectIsLoading);
+  const catalogCars = useSelector(selectCars);
   const [page, setPage] = useState(1);
-
   const [filteredCars, setFilteredCars] = useState([]);
   const [filterParams, setFilterParams] = useState(null);
-  const catalogCars = useSelector(selectCars);
+
   const totalPages = Math.ceil(catalogCars.length / 8);
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    (async () => {
-      try {
-        const catalog = await fetchCarsPage(page);
-        if (page > 1) {
-          setCars(prevCars => [...prevCars, ...catalog]);
-        } else {
-          setCars(catalog);
-        }
-      } catch (error) {
-        alert('Error fetching catalog:', error.message);
-      }
-    })();
-  }, [page]);
+    dispatch(fetchCarsPaginationThunk(page));
+  }, [dispatch, page]);
 
   useEffect(() => {
     dispatch(fetchAllCarsThunk());
@@ -44,12 +43,13 @@ const CatalogSection = () => {
     }
   }, [catalogCars, filterParams]);
 
-  const handleLoadMorePicture = () => {
-    setPage(prevPage => prevPage + 1);
-  };
-
   const handleFilter = e => {
     setFilterParams(e);
+  };
+
+  const handleBack = () => {
+    setFilterParams(null);
+    setFilteredCars([]);
   };
 
   return (
@@ -57,20 +57,37 @@ const CatalogSection = () => {
       <section className={scss.section}>
         <Filter onFilter={handleFilter} />
       </section>
-      <section className={scss.section}>
-        <CarsList
-          cars={filteredCars.length >= 1 && filterParams ? filteredCars : cars}
-        />
-        {page < totalPages && filteredCars.length === 0 && !filterParams && (
-          <button
-            type="button"
-            onClick={handleLoadMorePicture}
-            className={scss.cardList_loadBtn}
-          >
-            Load more
-          </button>
-        )}
-      </section>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div>
+          {filteredCars.length >= 1 && filterParams && (
+            <section className={scss.section}>
+              <CarsList cars={filteredCars} />
+            </section>
+          )}
+          {filteredCars.length === 0 && filterParams && (
+            <section className={scss.section}>
+              <NoResults onClick={handleBack} />
+            </section>
+          )}
+
+          {filteredCars.length === 0 && !filterParams && (
+            <div>
+              <section className={scss.section}>
+                <CarsList cars={cars} />
+              </section>
+              <section className={scss.section}>
+                <Paginator
+                  currentPage={page}
+                  totalPages={totalPages}
+                  onPageChange={setPage}
+                />
+              </section>
+            </div>
+          )}
+        </div>
+      )}
     </>
   );
 };

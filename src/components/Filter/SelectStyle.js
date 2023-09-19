@@ -83,7 +83,7 @@ export const makeStyles = style => ({
 
   placeholder: baseStyles => ({
     ...baseStyles,
-    color: 'black',
+    color: '#8a8a89',
     fontSize: 18,
     fontWeight: 500,
     lineHeight: '111.111%',

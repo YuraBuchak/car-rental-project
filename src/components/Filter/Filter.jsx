@@ -93,7 +93,7 @@ const Filter = ({ onFilter }) => {
             type="number"
             name="from"
             id="from"
-            placeholder="from"
+            placeholder="From"
             onChange={handleChange}
             className={scss.input}
           />
@@ -114,7 +114,7 @@ const Filter = ({ onFilter }) => {
       </div>
 
       <button className={scss.filter_btn} type="submit">
-        Search
+        SEARCH
       </button>
     </form>
   );

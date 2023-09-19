@@ -47,7 +47,7 @@
 .carCard_title {
   color: $primary-font-color;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   line-height: calc(24 / 16);
 
   &:not(:last-child) {
@@ -97,17 +97,17 @@
 }
 
 .carCard_button {
-  display: flex;
+  @extend %flex;
+
   width: 274px;
   height: 44px;
   padding: 12px 99px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
-  background: $accent-color;
-  color: $primary-white;
-  border-color: transparent;
   margin-top: auto;
+
+  color: $primary-white;
+  background: $accent-color;
+  border-radius: 12px;
+  border-color: $transparent;
 
   transition: background-color $transition-duration;
 
@@ -121,8 +121,8 @@
   position: absolute;
   top: 14px;
   right: 14px;
-  background-color: transparent;
-  border-color: transparent;
+  background-color: $transparent;
+  border-color: $transparent;
 }
 
 // .icon_heart {

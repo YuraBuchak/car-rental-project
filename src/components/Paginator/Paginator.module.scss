@@ -1,0 +1,58 @@
+@import '../../styles/variables';
+@import '../../styles/placeholder';
+
+.button__wrapper {
+  @extend %flex;
+  gap: 15px;
+
+  width: 295px;
+  padding: 14px 0px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+
+  color: $primary-white;
+}
+
+.button_number__wrapper {
+  display: flex;
+  gap: 11px;
+}
+
+.paginator_Btn {
+  @extend %flex;
+
+  width: 27px;
+  height: 27px;
+
+  font-size: 15px;
+  font-weight: $font-weight-bold;
+
+  color: $accent-color;
+  background-color: $transparent;
+
+  border: none;
+  border-radius: 50%;
+
+  &:hover,
+  &:focus {
+    color: $primary-white;
+    background-color: $accent-hover-color;
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $transparent;
+    }
+  }
+
+  &:active {
+    color: $primary-white;
+
+    background-color: $accent-color;
+  }
+}
+
+.active {
+  color: $primary-white;
+
+  background-color: $accent-color;
+}

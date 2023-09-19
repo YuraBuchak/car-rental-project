@@ -2,15 +2,17 @@
 @import '../styles/placeholder';
 
 .container {
-  width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
+  width: $desktop;
   padding-top: 100px;
+  margin: 0 auto;
 }
 .section {
   width: 1184px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+}
+
+.favorites {
+  margin-top: 60px;
 }
 
 .pageTitle {
@@ -19,19 +21,4 @@
   line-height: calc(50 / 44);
   color: $primary-font-color;
   margin-bottom: 50px;
-}
-
-.cardList_loadBtn {
-  display: flex;
-  margin: 0 auto;
-  width: 130px;
-  height: 55px;
-  padding: 15px 20px;
-  border: transparent;
-  background-color: transparent;
-  color: $accent-color;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: calc(24 / 16);
-  text-decoration-line: underline;
 }

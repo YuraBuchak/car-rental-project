@@ -15,3 +15,20 @@
   margin: 0 auto;
   padding: 80px 28px;
 }
+
+// що це
+
+%flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%navigationLink {
+  padding: 6px 14px;
+  font-size: 23px;
+  font-weight: $font-weight-bold;
+  color: $primary-white;
+  border-radius: 10px;
+  border: 1px solid $gray;
+}

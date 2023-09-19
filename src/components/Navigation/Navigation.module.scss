@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/placeholder';
 
 .navigationContainer {
   display: flex;
@@ -7,14 +8,7 @@
 }
 
 .navigationLink {
-  padding: 6px 14px;
-
-  font-size: 23px;
-  font-weight: $font-weight-bold;
-  color: $primary-white;
-
-  border-radius: 10px;
-  border: 1px solid $gray;
+  @extend %navigationLink;
 
   transition: border $transition-duration, background-color $transition-duration;
 
@@ -26,14 +20,7 @@
 }
 
 .active {
-  padding: 6px 14px;
-
-  font-size: 23px;
-  font-weight: $font-weight-bold;
-  color: $primary-white;
-
-  border-radius: 10px;
-  border: 1px solid $gray;
+  @extend %navigationLink;
   background-color: rgba($black, 0.5);
   border: 1px solid rgba($primary-white, 0.6);
 }

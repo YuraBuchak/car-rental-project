@@ -1,21 +1,19 @@
 @import '../../styles/variables';
+@import '../../styles/placeholder';
 
 .loader_overlay {
+  @extend %flex;
+
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba($gray, 0.5);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 2000;
+
+  background-color: $transparent;
 }
 
 .loader_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %flex;
 }
